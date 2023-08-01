@@ -7,5 +7,7 @@ This project uses Multilayered deep CNN model that classifies the natural disast
 
 ## Project Flow
 -> The user interacts with the UI (User Interface) to open the integrated webcam.
+
 -> The video frames are captured and analyzed by the model which is integrated with flask application.
+
 -> Once model analyses the video frames, the prediction is showcased on the UI and OpenCV window
