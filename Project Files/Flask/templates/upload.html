@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Webcam Capture</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #12558d;
+        }
+
+        video {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .blue {
+            background-color: #12558d;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .blue:hover {
+            background-color: #0c3f6e;
+        }
+
+        .canvas-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        canvas {
+            border: 1px solid #dcad0d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-container {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #12558d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Webcam Capture</h2>
+        <video id="yourWebcamElement" width="640" height="480" autoplay></video>
+        <div class="action-buttons">
+            <button onclick="captureImage()" class='blue'><b>Capture Image</b></button>
+            <button id="predict-btn" class='blue'><b>Predict from Webcam</b></button>
+        </div>
+        <div class="canvas-container">
+            <canvas id="canvasElement" width="640" height="480"></canvas>
+        </div>
+        <div class="result-container" id="predictionResult"></div>
+    </div>
+
+
+    <script>
+        // Access the webcam and display the feed in the video element
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const videoElement = document.getElementById('yourWebcamElement');
+                videoElement.srcObject = stream;
+            } catch (err) {
+                console.error('Error accessing webcam: ', err);
+            }
+        }
+
+        // Capture image from the webcam and display it on the canvas
+        function captureImage() {
+            const videoElement = document.getElementById('yourWebcamElement');
+            const canvasElement = document.getElementById('canvasElement');
+            const context = canvasElement.getContext('2d');
+            context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+        }
+
+        // Start the webcam when the page loads
+        window.addEventListener('load', startWebcam);
+        const predictButton = document.getElementById('predict-btn');
+
+        async function predictFromWebcam() {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = yourWebcamElement.videoWidth;
+            canvas.height = yourWebcamElement.videoHeight;
+            context.drawImage(yourWebcamElement, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(async function (blob) {
+                const formData = new FormData();
+                formData.append('image', blob, 'webcam.jpg');
+
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+                const predictionResult = document.getElementById('predictionResult');
+                predictionResult.textContent = `Prediction: ${result.prediction}`;
+            }, 'image/jpeg');
+        }
+
+        predictButton.addEventListener('click', predictFromWebcam);
+    </script>
+
+</body>
+</html>
