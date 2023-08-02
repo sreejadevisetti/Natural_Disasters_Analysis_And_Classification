@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Webcam Capture</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Webcam Capture</h2>
+        <video id="yourWebcamElement" width="640" height="480" autoplay></video>
+        <br>
+        <button onclick="captureImage()">Capture Image</button>
+        <br>
+        <canvas id="canvasElement" width="640" height="480" style="border: 1px solid black;"></canvas>
+        <button id="predict-btn">Predict from Webcam</button>
+        <p id="predictionResult"></p>
+    </div>
+
+    <script>
+        // Access the webcam and display the feed in the video element
+        async function startWebcam() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const videoElement = document.getElementById('yourWebcamElement');
+                videoElement.srcObject = stream;
+            } catch (err) {
+                console.error('Error accessing webcam: ', err);
+            }
+        }
+
+        // Capture image from the webcam and display it on the canvas
+        function captureImage() {
+            const videoElement = document.getElementById('yourWebcamElement');
+            const canvasElement = document.getElementById('canvasElement');
+            const context = canvasElement.getContext('2d');
+            context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
+        }
+
+        // Start the webcam when the page loads
+        window.addEventListener('load', startWebcam);
+        const predictButton = document.getElementById('predict-btn');
+
+        async function predictFromWebcam() {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = yourWebcamElement.videoWidth;
+            canvas.height = yourWebcamElement.videoHeight;
+            context.drawImage(yourWebcamElement, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(async function (blob) {
+                const formData = new FormData();
+                formData.append('image', blob, 'webcam.jpg');
+
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.json();
+                const predictionResult = document.getElementById('predictionResult');
+                predictionResult.textContent = `Prediction: ${result.prediction}`;
+            }, 'image/jpeg');
+        }
+
+        predictButton.addEventListener('click', predictFromWebcam);
+    </script>
+
+</body>
+
+</html>
