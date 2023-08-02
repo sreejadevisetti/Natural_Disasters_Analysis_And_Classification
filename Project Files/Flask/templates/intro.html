@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI-based Natural Disaster Analysis</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2vw;
+            text-align: center;
+            padding: 30px;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in-out;
+            color: #12558d;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .header {
+            background: linear-gradient(90deg, #12558d, #01a9b4);
+            color: white;
+            padding: 10px;
+            font-size: 2.5vw;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            letter-spacing: 1px; /* Add letter-spacing for an even look */
+        }
+
+        .topnav-right {
+            float: right;
+            margin-top: 10px;
+        }
+
+        .topnav-right a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-left: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .topnav-right a:hover {
+            color: #01a9b4;
+        }
+
+        .active {
+            color: #01a9b4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 140px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #12558d;
+            font-size: 1.1vw;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            color: #888;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .divider {
+            border-bottom: 2px solid #12558d;
+            margin: 20px 0;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header">
+        AI-based Natural Disaster Analysis
+        <div class="topnav-right">
+            <a href="/home">Home</a>
+            <a class="active" href="/intro">Introduction</a>
+            <a href="/upload">Open Webcam</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>
+            <span style="color: #12558d;">China, India, and the United States</span> <span style="color: #01a9b4;">are among the countries of the world most</span> <span style="color: #12558d;">affected by natural disasters.</span> <span style="color: #01a9b4;">Natural disasters have the potential to wreck and even end the lives of those people,</span> <span style="color: #12558d;">who stand in their way.</span> <span style="color: #01a9b4;">However, whether or not you are likely to be</span> <span style="color: #12558d;">affected by a natural disaster greatly depends</span> <span style="color: #01a9b4;">on where in the world you live.</span>
+            <span style="color: #12558d;">The objective of</span> <span style="color: #01a9b4;">the project is to</span> <span style="color: #12558d;">human build a</span> <span style="color: #01a9b4;">web application</span> <span style="color: #12558d;">to detect the</span> <span style="color: #01a9b4;">type of disaster.</span> <span style="color: #12558d;">The input</span> <span style="color: #01a9b4;">is taken from the in-built webcam,</span>
+            <span style="color: #12558d;">which in turn</span> <span style="color: #01a9b4;">is</span> <span style="color: #12558d;">given to the</span> <span style="color: #01a9b4;">pre-trained model.</span> <span style="color: #12558d;">The model predicts the</span> <span style="color: #01a9b4;">type of disaster</span> <span style="color: #12558d;">and displayed</span> <span style="color: #01a9b4;">on UI.</span>
+        </h1>
+        <div class="divider"></div>
+    </div>
+    <div class="footer">
+        © 2023 AI-based Natural Disaster Analysis. All rights reserved.
+    </div>
+</body>
+</html>
