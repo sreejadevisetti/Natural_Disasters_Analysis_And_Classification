@@ -85,13 +85,13 @@ The Natural Disasters Intensity Analysis And Classification system is a valuable
 
 ## Output Screenshots
 
-Home Page
+### Home Page
 ![Screenshot 2023-08-03 224410](https://github.com/Sreeja799/Natural_Disasters_Intensity_Analysis_And_Classification/assets/73770166/bb1264c1-6ae5-403d-8da2-75aafca76908)
 
-Introduction Page
+### Introduction Page
 ![Screenshot 2023-08-03 224514](https://github.com/Sreeja799/Natural_Disasters_Intensity_Analysis_And_Classification/assets/73770166/04079808-c40d-4614-aa07-dcf43473ad25)
 
-Upload Page (Open Webcam)
+### Upload Page (Open Webcam)
 ![Screenshot 2023-08-03 224147](https://github.com/Sreeja799/Natural_Disasters_Intensity_Analysis_And_Classification/assets/73770166/0b4b3a8b-88b2-4fc6-be2f-473c28c4e1f7)
 
 ![Screenshot 2023-08-03 224232](https://github.com/Sreeja799/Natural_Disasters_Intensity_Analysis_And_Classification/assets/73770166/8817b87f-9d77-4d44-b66b-fbefc1154c46)
