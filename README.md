@@ -16,27 +16,8 @@ To use the system, you need to follow these steps:
 
 4. Place your dataset in the appropriate directories for training and testing. The dataset should be organized in separate folders for each class (Cyclone, Earthquake, Flood, and Wildfire). The folder structure should be as follows:
 
-   ```
-   project_folder/
-   ├── app.py
-   ├── disaster.h5
-   ├── model-bw.json
-   ├── templates/
-   │   ├── home.html
-   │   ├── intro.html
-   │   ├── upload.html
-   └── dataset/
-       ├── train_set/
-       │   ├── Cyclone/
-       │   ├── Earthquake/
-       │   ├── Flood/
-       │   ├── Wildfire/
-       ├── test_set/
-       │   ├── Cyclone/
-       │   ├── Earthquake/
-       │   ├── Flood/
-       │   ├── Wildfire/
-   ```
+![1](https://github.com/Sreeja799/Natural_Disasters_Intensity_Analysis_And_Classification/assets/73770166/d3fbdc11-7a66-49fc-ab4e-3e23432cc64b)
+
 
 5. Run the `app.py` file using the command `python app.py`. The Flask application will start running on your local server.
 
