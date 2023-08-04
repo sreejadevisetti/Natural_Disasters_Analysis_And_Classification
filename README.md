@@ -4,7 +4,7 @@
 
 This project provides a system for analyzing and classifying the intensity of natural disasters. It uses a Convolutional Neural Network (CNN) for image classification. The system is able to classify images into four categories of natural disasters: Cyclone, Earthquake, Flood, and Wildfire.
 
-### Project Link: https://tinyurl.com/Disaster-Classification
+### Project Demo Link: https://tinyurl.com/Disaster-Classification
 
 ## Getting Started
 
