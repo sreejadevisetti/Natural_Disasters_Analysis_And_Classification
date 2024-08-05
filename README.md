@@ -1,4 +1,4 @@
-# Natural Disasters Intensity Analysis And Classification
+# Natural Disasters Analysis And Classification
 
 ## Introduction
 
